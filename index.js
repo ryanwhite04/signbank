@@ -4,7 +4,7 @@ class SignBank extends LitElement {
 
     constructor() {
         super();
-        console.log(this, this.src);
+        this.search = '';
         // this. signs = new SignsController(this, this.src);
     }
 
@@ -36,21 +36,10 @@ class SignBank extends LitElement {
 
     static properties = {
         src: {},
-    }
-
-    connectedCallback() {
-        super.connectedCallback()
-        console.log(this.signs);
-
-    }
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        delete this.signs;
+        search: {},
     }
 
     toggle(word, signs) {
-        console.log('toggle', { word, signs });
         const event = new Event('toggle');
         event.detail = { word, signs };
         return () => this.dispatchEvent(event)
@@ -61,9 +50,9 @@ class SignBank extends LitElement {
             ${this.task.render({
                 pending: () => html`Loading Signs...`,
                 complete: signs => {
-                    let items = Object.entries(signs).map(([word, signs]) => {
-                        return html`<mwc-list-item @click=${this.toggle(word, signs)}>${word}</mwc-list-item>`
-                    })
+                    let items = Object.entries(signs)
+                        .filter(([word]) => word.includes(this.search))
+                        .map(([word, signs]) => html`<mwc-list-item @click=${this.toggle(word, signs)}>${word}</mwc-list-item>`)
                     return html`<mwc-list id="words">${items}</mwc-list>`
                 },
             })}
