@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Bank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="index.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    </head>
+    <body class="unresolved">
+        <mwc-drawer id="drawer" hasHeader type="modal">
+            <span id="title" slot="title"></span>
+            <span id="subtitle" slot="subtitle"></span>
+            <div class="drawer-content">
+                <video id="video" loop autoplay controls></video>
+                <json-viewer id="viewer">
+                    [
+                        {"a": 1},
+                        {"b": 2}
+                    ]
+                </json-viewer>
+                <img id="region">
+            </div>
+        <div slot="appContent">
+            <mwc-top-app-bar-fixed>
+                <div slot="title">Sign Bank</div>
+            </mwc-top-app-bar-fixed>
+            <sign-bank id="bank" src="auslan-signbank-signs.json"></sign-bank>
+        </div>
+        </mwc-drawer>
+        <script>
+            const drawer = document.getElementById('drawer');
+            const viewer = document.getElementById('viewer');
+            const title = document.getElementById('title');
+            const subtitle = document.getElementById('subtitle');
+            const video = document.getElementById('video');
+            const region = document.getElementById('region');
+            function toggle(e) {
+                const { target, detail } = e;
+                const { word, signs } = detail;
+                const sign = signs[0];
+                drawer.open = true;
+                viewer.data = sign.definition;
+                title.textContent = word;
+                video.src = sign.video;
+                region.src = sign.region;
+                region.setAttribute('alt', signs.region.split("/Auslan/")[1].split(".")[0]);
+                subtitle.textContent = [...new Set(signs.reduce((keywords, sign) => ([...keywords, ...sign.keywords]), []))].join(', ');
+                console.log(e, target, detail);
+            }
+            addEventListener('load', () => document.body.classList.remove('unresolved'))
+            document.getElementById('bank').addEventListener('toggle', toggle);
+        </script>
+        <script src="index.js" type="module"></script>
+    </body>
+</html>

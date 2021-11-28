@@ -1,0 +1,20 @@
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    transition: opacity ease-in 0.2s;
+}
+
+main {
+    padding: 16px;
+}
+
+.unresolved main {
+    opacity: 0;
+}
+#drawer {
+    --mdc-drawer-width: 500px;
+}
+
+#video, #region {
+    width: var(--mdc-drawer-width);
+}

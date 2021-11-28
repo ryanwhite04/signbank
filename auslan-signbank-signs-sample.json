@@ -1,0 +1,130 @@
+{
+  "a or A (fingerspelling)": [
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/a%20or%20A%20(fingerspelling)-1.html",
+      "video": "https://media.auslan.org.au/mp4video/11/11450.mp4",
+      "variants": [],
+      "keywords": [
+        "a or A (fingerspelling)"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1.  The letter A in the two-handed manual alphabet."
+        ]
+      },
+      "region": "Australia Wide"
+    }
+  ],
+  "vegan": [
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/vegan-1.html",
+      "video": "https://media.auslan.org.au/mp4video/Gloss/73/7380_9ipavkC.mp4",
+      "variants": [
+        "https://media.auslan.org.au/mp4video/Definition/18/18653.mp4"
+      ],
+      "keywords": [
+        "vegan"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1. A VEGAN is a person who does not use animal products for food, clothing or any other purpose."
+        ],
+        "As a Verb or Adjective": [
+          "1. A food or other product that does not contain animal products such as eggs, honey or dairy is VEGAN."
+        ],
+        "Note": [
+          "1. The signer in the video is giving an Auslan explanation of the English keyword VEGAN. There appears to be no commonly used Auslan sign for VEGAN (but some signers represent this visually using depicting signs, once they have established the topic).  If you know a sign for VEGAN used by you or other Auslan users (deaf people or interpreters) please go to \"Report missing sign\" and supply details. Thank you."
+        ]
+      },
+      "region": "Australia Wide"
+    }
+  ],
+  "vegemite": [
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/vegemite-1.html",
+      "video": "https://media.auslan.org.au/mp4video/17/17400.mp4",
+      "variants": [],
+      "keywords": [
+        "vegemite"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1.  The trademark of a dark salty spread, usually eaten at breakfast on toast, which is made from yeast and which is very popular in Australia, especially with children, called Vegemite."
+        ]
+      },
+      "region": "https://www.auslan.org.au/static/img/maps/Auslan/AustraliaWide-traditional.1c3fd2ba0f52.png"
+    },
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/vegemite-2.html",
+      "video": "https://media.auslan.org.au/mp4video/Gloss/62/6262.mp4",
+      "variants": [],
+      "keywords": [
+        "vegemite"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1.  The trademark of a dark salty spread, usually eaten at breakfast on toast, which is made from yeast and which is very popular in Australia, especially with children, called Vegemite."
+        ]
+      },
+      "region": "https://www.auslan.org.au/static/img/maps/Auslan/AustraliaWide-traditional.1c3fd2ba0f52.png"
+    }
+  ],
+  "vegetables": [
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/vegetables-1.html",
+      "video": "https://media.auslan.org.au/mp4video/Gloss/62/6262.mp4",
+      "variants": [],
+      "keywords": [
+        "vegetables"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1.  Plants such as cabbages, potatoes, and onions which you can cook and eat. English = vegetables. Informal English = veg, vegie."
+        ]
+      },
+      "region": "https://www.auslan.org.au/static/img/maps/Auslan/AustraliaWide-traditional.1c3fd2ba0f52.png"
+    },
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/vegetables-2.html",
+      "video": "https://media.auslan.org.au/mp4video/49/49590_1.mp4",
+      "variants": [],
+      "keywords": [
+        "peeling",
+        "peel",
+        "skin",
+        "vegetables",
+        "fruit"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1.  The act of removing the outer layer of fruit or vegetables. English = peeling.",
+          "2.  The outer layer of fruit or vegetables. English = peel, skin.",
+          "3.  Types of plants from which you usually remove the tough outer layer before eating. English = vegetables, fruit."
+        ],
+        "As a Verb or Adjective": [
+          "1.  To remove the tough outer layer of fruit or vegetables. English = peel."
+        ]
+      },
+      "region": "https://www.auslan.org.au/static/img/maps/Auslan/AustraliaWide-traditional.1c3fd2ba0f52.png"
+    }
+  ],
+  "vegetarian": [
+    {
+      "url": "https://www.auslan.org.au/dictionary/words/vegetarian-1.html",
+      "video": "https://media.auslan.org.au/auslan/15/15600.mp4",
+      "variants": [],
+      "keywords": [
+        "vegetarian"
+      ],
+      "definition": {
+        "As a Noun": [
+          "1.  A person who does not eat meat or fish. English = vegetarian."
+        ],
+        "As a Verb or Adjective": [
+          "1.  To be a person who does not eat meat or fish. English = (be) vegetarian."
+        ]
+      },
+      "region": "https://www.auslan.org.au/static/img/maps/Auslan/AustraliaWide-traditional.1c3fd2ba0f52.png"
+    }
+  ]
+}

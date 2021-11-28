@@ -1,0 +1,17 @@
+{
+    "imports": {
+        "/": "https://unpkg.com/",
+        "lit": "https://unpkg.com/lit",
+        "@lit-labs/": "https://unpkg.com/@lit-labs/",
+        "@material/": "https://unpkg.com/@material/",
+        "lit/": "https://unpkg.com/lit/",
+        "tslib": "https://unpkg.com/tslib",
+        "@lit/": "https://unpkg.com/@lit/",
+        "lit-html/": "https://unpkg.com/lit-html/",
+        "lit-element/": "https://unpkg.com/lit-element/",
+        "lit-html": "https://unpkg.com/lit-html",
+        "blocking-elements": "https://unpkg.com/blocking-elements",
+        "wicg-inert": "https://unpkg.com/wicg-inert",
+        "@alenaksu/json-viewer": "https://unpkg.com/@alenaksu/json-viewer"
+    }
+}
