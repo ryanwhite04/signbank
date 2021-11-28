@@ -1,4 +1,4 @@
-import { LitElement, css, html, initialState, Task } from "./modules.bundle.js"
+import { LitElement, css, html, repeat, initialState, Task } from "./modules.bundle.js"
 
 class SignBank extends LitElement {
 
@@ -49,11 +49,21 @@ class SignBank extends LitElement {
         return html`
             ${this.task.render({
                 pending: () => html`Loading Signs...`,
+                // complete: signs => {
+                //     let items = Object.entries(signs)
+                //         .filter(([word]) => word.includes(this.search))
+                //         .map(([word, signs]) => html`<mwc-list-item @click=${this.toggle(word, signs)}>${word}</mwc-list-item>`)
+                //     return html`<mwc-list id="words">${items}</mwc-list>`
+                // },
                 complete: signs => {
-                    let items = Object.entries(signs)
-                        .filter(([word]) => word.includes(this.search))
-                        .map(([word, signs]) => html`<mwc-list-item @click=${this.toggle(word, signs)}>${word}</mwc-list-item>`)
-                    return html`<mwc-list id="words">${items}</mwc-list>`
+                    const items = Object.entries(signs)
+                        .map(([word, signs]) => ({ word, signs }))
+                        .filter(item => item.word.includes(this.search));
+                    const keyFn = item => item.word;
+                    const template = (item, index) => html`<mwc-list-item @click=${this.toggle(item.word, item.signs)}>${item.word}</mwc-list-item>`
+                    return html`<mwc-list id="words">
+                        ${repeat(items, keyFn, template)}
+                    </mwc-list>`;
                 },
             })}
         `;
