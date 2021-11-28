@@ -24,6 +24,7 @@
         <div slot="appContent">
             <mwc-top-app-bar-fixed>
                 <div slot="title">Sign Bank</div>
+                <mwc-textfield slot="actionItems" id="search" label="Search"></mwc-textfield>
             </mwc-top-app-bar-fixed>
             <sign-bank id="bank" src="auslan-signbank-signs.json"></sign-bank>
         </div>
@@ -35,6 +36,12 @@
             const subtitle = document.getElementById('subtitle');
             const video = document.getElementById('video');
             const region = document.getElementById('region');
+            const bank = document.getElementById('bank');
+
+            function search(e) {
+                bank.search = e.target.value;
+            }
+
             function toggle(e) {
                 const { target, detail } = e;
                 const { word, signs } = detail;
@@ -49,7 +56,8 @@
                 console.log(e, target, detail);
             }
             addEventListener('load', () => document.body.classList.remove('unresolved'))
-            document.getElementById('bank').addEventListener('toggle', toggle);
+            bank.addEventListener('toggle', toggle);
+            document.getElementById('search').addEventListener('input', search);
         </script>
         <script src="index.js" type="module"></script>
     </body>

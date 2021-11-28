@@ -7,6 +7,7 @@ import "@material/mwc-list/mwc-list-item.js";
 import "@material/mwc-drawer/mwc-drawer.js";
 import "@material/mwc-top-app-bar-fixed/mwc-top-app-bar-fixed.js";
 import "@material/mwc-icon-button/mwc-icon-button.js";
+import "@material/mwc-textfield/mwc-textfield.js";
 import "@alenaksu/json-viewer";
 
 export { LitElement, css, html, repeat, initialState, Task }
