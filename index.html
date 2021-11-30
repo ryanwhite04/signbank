@@ -26,7 +26,32 @@
                 <div slot="title">Sign Bank</div>
                 <mwc-textfield slot="actionItems" id="search" label="Search"></mwc-textfield>
             </mwc-top-app-bar-fixed>
-            <sign-bank id="bank" src="auslan-signbank-signs.json"></sign-bank>
+            <sign-bank id="a" src="auslan/a.json"><h2>a</h2></sign-bank>
+            <sign-bank id="b" src="auslan/b.json"><h2>b</h2></sign-bank>
+            <sign-bank id="c" src="auslan/c.json"><h2>c</h2></sign-bank>
+            <sign-bank id="d" src="auslan/d.json"><h2>d</h2></sign-bank>
+            <sign-bank id="e" src="auslan/e.json"><h2>e</h2></sign-bank>
+            <sign-bank id="f" src="auslan/f.json"><h2>f</h2></sign-bank>
+            <sign-bank id="g" src="auslan/g.json"><h2>g</h2></sign-bank>
+            <sign-bank id="h" src="auslan/h.json"><h2>h</h2></sign-bank>
+            <sign-bank id="i" src="auslan/i.json"><h2>i</h2></sign-bank>
+            <sign-bank id="j" src="auslan/j.json"><h2>j</h2></sign-bank>
+            <sign-bank id="k" src="auslan/k.json"><h2>k</h2></sign-bank>
+            <sign-bank id="l" src="auslan/l.json"><h2>l</h2></sign-bank>
+            <sign-bank id="m" src="auslan/m.json"><h2>m</h2></sign-bank>
+            <sign-bank id="n" src="auslan/n.json"><h2>n</h2></sign-bank>
+            <sign-bank id="o" src="auslan/o.json"><h2>o</h2></sign-bank>
+            <sign-bank id="p" src="auslan/p.json"><h2>p</h2></sign-bank>
+            <sign-bank id="q" src="auslan/q.json"><h2>q</h2></sign-bank>
+            <sign-bank id="r" src="auslan/r.json"><h2>r</h2></sign-bank>
+            <sign-bank id="s" src="auslan/s.json"><h2>s</h2></sign-bank>
+            <sign-bank id="t" src="auslan/t.json"><h2>t</h2></sign-bank>
+            <sign-bank id="u" src="auslan/u.json"><h2>u</h2></sign-bank>
+            <sign-bank id="v" src="auslan/v.json"><h2>v</h2></sign-bank>
+            <sign-bank id="w" src="auslan/w.json"><h2>w</h2></sign-bank>
+            <sign-bank id="x" src="auslan/x.json"><h2>x</h2></sign-bank>
+            <sign-bank id="y" src="auslan/y.json"><h2>y</h2></sign-bank>
+            <sign-bank id="z" src="auslan/z.json"><h2>z</h2></sign-bank>
         </div>
         </mwc-drawer>
         <script>
@@ -36,10 +61,9 @@
             const subtitle = document.getElementById('subtitle');
             const video = document.getElementById('video');
             const region = document.getElementById('region');
-            const bank = document.getElementById('bank');
 
             function search(e) {
-                bank.search = e.target.value;
+                [...document.getElementsByTagName('sign-bank')].map(bank => bank.search = e.target.value);
             }
 
             function toggle(e) {
@@ -51,12 +75,12 @@
                 title.textContent = word;
                 video.src = sign.video;
                 region.src = sign.region;
-                region.setAttribute('alt', signs.region.split("/Auslan/")[1].split(".")[0]);
+                region.setAttribute('alt', sign.region.split("/Auslan/")[1].split(".")[0]);
                 subtitle.textContent = [...new Set(signs.reduce((keywords, sign) => ([...keywords, ...sign.keywords]), []))].join(', ');
                 console.log(e, target, detail);
             }
-            addEventListener('load', () => document.body.classList.remove('unresolved'))
-            bank.addEventListener('toggle', toggle);
+            addEventListener('load', () => document.body.classList.remove('unresolved'));
+            [...document.getElementsByTagName('sign-bank')].map(bank => bank.addEventListener('toggle', toggle));
             document.getElementById('search').addEventListener('input', search);
         </script>
         <script src="index.js" type="module"></script>
