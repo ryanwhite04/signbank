@@ -10,17 +10,7 @@ class SignBank extends LitElement {
 
     task = new Task(
         this,
-        async ([src]) => {
-            console.log('task', src);
-            const response = await fetch(src);
-            const result = await response.json();
-            console.log('task', result);
-            const error = result.error;
-            // if (error !== undefined) {
-            //     throw new Error(error);
-            // }
-            return result;
-        },
+        ([src]) => fetch(src).then(body => body.json()),
         () => [this.src]
     );
 
@@ -31,6 +21,9 @@ class SignBank extends LitElement {
         #words: {
             width: 48em;
             float: right;
+        }
+        mwc-list-item {
+            content-visibility: auto;
         }
     `;
 
@@ -44,58 +37,31 @@ class SignBank extends LitElement {
         event.detail = { word, signs };
         return () => this.dispatchEvent(event)
     }
+
+    complete(signs) {
+
+    }
     
     render() {
+        const search = this.search;
         return html`
             ${this.task.render({
                 pending: () => html`Loading Signs...`,
-                // complete: signs => {
-                //     let items = Object.entries(signs)
-                //         .filter(([word]) => word.includes(this.search))
-                //         .map(([word, signs]) => html`<mwc-list-item @click=${this.toggle(word, signs)}>${word}</mwc-list-item>`)
-                //     return html`<mwc-list id="words">${items}</mwc-list>`
-                // },
                 complete: signs => {
-                    const items = Object.entries(signs)
-                        .map(([word, signs]) => ({ word, signs }))
-                        .filter(item => item.word.includes(this.search));
-                    const keyFn = item => item.word;
-                    const template = (item, index) => html`<mwc-list-item @click=${this.toggle(item.word, item.signs)}>${item.word}</mwc-list-item>`
-                    return html`<mwc-list id="words">
-                        ${repeat(items, keyFn, template)}
-                    </mwc-list>`;
+                const items = Object.entries(signs).map(([word, signs]) => ({ word, signs })).filter(({ word }) => word.includes(search));
+                const keyFn = item => item.word;
+                const template = ({word, signs}, index) => html`<mwc-list-item @click=${this.toggle(word, signs)}>${word}</mwc-list-item>`
+                let start = performance.now();
+                const listItems = repeat(items, keyFn, template);
+                return html`
+                <slot></slot>
+                <mwc-list id="words">
+                    ${listItems}
+                </mwc-list>`;
                 },
             })}
         `;
     }
 }
 
-class SignEntry extends LitElement {
-
-    static properties = {
-        word: {},
-        open: { type: Boolean },
-        signs: { type: Array },
-    }
-
-    constructor() {
-        super();
-        this.addEventListener('click', this.toggle);
-        this.open = false;
-    }
-
-    toggle() {
-        this.open = !this.open;
-    } 
-
-    signTemplate(sign) {
-        return html`<mwc-list-item><video controls autoplay loop src=${sign.video}></video></mwc-list-item>`
-    }
-
-    render() {
-        return html`<p>${this.word}</p>`
-    }
-}
-
-customElements.define('sign-entry', SignEntry);
 customElements.define('sign-bank', SignBank);

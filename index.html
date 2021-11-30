@@ -13,13 +13,8 @@
             <span id="subtitle" slot="subtitle"></span>
             <div class="drawer-content">
                 <video id="video" loop autoplay controls muted></video>
-                <json-viewer id="viewer">
-                    [
-                        {"a": 1},
-                        {"b": 2}
-                    ]
-                </json-viewer>
-                <img id="region">
+                <json-viewer id="definitions"></json-viewer>
+                
             </div>
         <div slot="appContent">
             <mwc-top-app-bar-fixed>
@@ -56,11 +51,10 @@
         </mwc-drawer>
         <script>
             const drawer = document.getElementById('drawer');
-            const viewer = document.getElementById('viewer');
+            const definitions = document.getElementById('definitions');
             const title = document.getElementById('title');
             const subtitle = document.getElementById('subtitle');
             const video = document.getElementById('video');
-            const region = document.getElementById('region');
 
             function search(e) {
                 [...document.getElementsByTagName('sign-bank')].map(bank => bank.search = e.target.value);
@@ -71,14 +65,12 @@
                 const { word, signs } = detail;
                 const sign = signs[0];
                 drawer.open = true;
-                viewer.data = sign.definition;
+                definitions.data = sign.definition;
                 title.textContent = word;
                 video.src = sign.video;
-                region.src = sign.region;
-                region.setAttribute('alt', sign.region.split("/Auslan/")[1].split(".")[0]);
-                subtitle.textContent = [...new Set(signs.reduce((keywords, sign) => ([...keywords, ...sign.keywords]), []))].join(', ');
-                console.log(e, target, detail);
+                subtitle.textContent = `${[...new Set(signs.reduce((keywords, sign) => ([...keywords, ...sign.keywords]), []))].join(', ')}\nRegion: ${sign.region}`;
             }
+            drawer.addEventListener('closed', e => video.removeAttribute('src'));
             addEventListener('load', () => document.body.classList.remove('unresolved'));
             [...document.getElementsByTagName('sign-bank')].map(bank => bank.addEventListener('toggle', toggle));
             document.getElementById('search').addEventListener('input', search);
