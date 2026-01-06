@@ -60,6 +60,18 @@ def main(file, dictionary_file, urls_file, ids_file):
         for id in ids:
             idfile.write(id + "\n")
 
+def asTSV(dictionary):
+    # the fields are: name, URL, Keywords, Alternates, Definition, Tags
+    # tags are space separated
+    lines = []
+    for key, value in dictionary.items():
+        if len(key) != 2:
+            continue
+        tags = " ".join(value["tags"])
+        lines.append(f"{key}\t{value['CH']}\t{value['ZY']}\t{value['EN']}\t{tags}")  
+    return "\n".join(lines)
+
+
 # python combine.py auslan/signs.json
 if __name__ == "__main__":
     
